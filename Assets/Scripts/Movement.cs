@@ -7,23 +7,33 @@ public class Movement : MonoBehaviour
 {
     public float speedOfTheGun = 10f;
     private float playerMovement;
+    private Vector2 mouseMovement;
+
     public InputActionAsset Map;
     InputActionMap gameplay;
-    InputAction playerHorizontalInput;
+    InputAction playerHorizontalKeyboardInput, playerHorizontalMouseInput;
     // Start is called before the first frame update
     void Awake()
     {
         gameplay = Map.FindActionMap("Player");
-        playerHorizontalInput = gameplay.FindAction("Movement");
+        playerHorizontalKeyboardInput = gameplay.FindAction("Keyboard");
+        playerHorizontalMouseInput = gameplay.FindAction("Mouse");
 
-        playerHorizontalInput.performed += HorizontalInput;
-        playerHorizontalInput.canceled += HorizontalInputCancel;
+        playerHorizontalKeyboardInput.performed += HorizontalKeyboardInput;
+        playerHorizontalMouseInput.performed += HorizontalMouseInput;
+        playerHorizontalKeyboardInput.canceled += HorizontalInputCancel;
     }
-    private void HorizontalInput(InputAction.CallbackContext obj)
+    private void HorizontalKeyboardInput(InputAction.CallbackContext obj)
     {
         playerMovement = obj.ReadValue<float>();
         Debug.Log("Player Movement performed= " + playerMovement);
     }
+
+    private void HorizontalMouseInput(InputAction.CallbackContext obj)
+    {
+        mouseMovement = obj.ReadValue<Vector2>();
+    }
+
     private void HorizontalInputCancel(InputAction.CallbackContext obj)
     {
         playerMovement = 0;
@@ -31,11 +41,13 @@ public class Movement : MonoBehaviour
     }
     private void OnEnable()
     {
-        playerHorizontalInput.Enable();
+        playerHorizontalKeyboardInput.Enable();
+        playerHorizontalMouseInput.Enable();
     }
     private void OnDisable()
     {
-        playerHorizontalInput.Disable();
+        playerHorizontalKeyboardInput.Disable();
+        playerHorizontalMouseInput.Disable();
     }
 
     private void Start()
@@ -49,7 +61,8 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         float move, rotate;
-        rotate = playerMovement * Time.deltaTime;
+        //rotate = playerMovement * Time.deltaTime;
+        rotate = (-mouseMovement.x / 100) * Time.deltaTime;
         move = -speedOfTheGun * Time.deltaTime;
         transform.Translate(0, rotate, move);
     }

@@ -6,7 +6,7 @@
             "id": "96a5a7a2-cc8c-4bf6-986b-16b6e3603d68",
             "actions": [
                 {
-                    "name": "Movement",
+                    "name": "Keyboard",
                     "type": "Value",
                     "id": "f4540dc7-0e9d-4a99-896b-dc68b268cedf",
                     "expectedControlType": "Axis",
@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Mouse",
+                    "type": "Value",
+                    "id": "fa4f5735-0d9b-4ce9-b0d5-101497d5bc56",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -32,7 +41,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Keyboard",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -43,7 +52,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Keyboard",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -54,7 +63,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Keyboard",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -77,6 +86,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62a3d7fb-dd7b-4fd6-9c39-f6cb0288e7b3",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
