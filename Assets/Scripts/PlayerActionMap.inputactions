@@ -6,15 +6,6 @@
             "id": "96a5a7a2-cc8c-4bf6-986b-16b6e3603d68",
             "actions": [
                 {
-                    "name": "Keyboard",
-                    "type": "Value",
-                    "id": "f4540dc7-0e9d-4a99-896b-dc68b268cedf",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "TouchPress",
                     "type": "Button",
                     "id": "84a497ec-79fb-4e89-9a80-5c9acb7b8c9a",
@@ -24,18 +15,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Mouse",
-                    "type": "Value",
-                    "id": "fa4f5735-0d9b-4ce9-b0d5-101497d5bc56",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "TouchSwipe",
                     "type": "PassThrough",
-                    "id": "28aa928c-f4c9-42bb-b49c-5ec8f6262ca4",
+                    "id": "9a3ee4b2-e693-458a-b04f-44f24e159f0a",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -43,50 +25,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "Keyboard",
-                    "id": "97033e22-ee01-4262-aa50-9a5dbe79e8e9",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Keyboard",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "c2a4660a-3c39-4d95-a6a4-91ddef21f3d3",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Keyboard",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "bc2042e8-27c1-4cbc-9339-b100262b1d6b",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Keyboard",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "62a3d7fb-dd7b-4fd6-9c39-f6cb0288e7b3",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Mouse",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "80055a35-1d0f-4aab-af1c-324a794a60b4",
@@ -100,7 +38,7 @@
                 },
                 {
                     "name": "",
-                    "id": "286965b7-9d06-4664-b083-390da834a370",
+                    "id": "c22fe54d-63c5-478d-b970-546e472c8122",
                     "path": "<Touchscreen>/delta/x",
                     "interactions": "",
                     "processors": "",
