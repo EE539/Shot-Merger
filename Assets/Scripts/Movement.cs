@@ -94,7 +94,7 @@ public class Movement : MonoBehaviour
         //rotate = playerMovement * Time.deltaTime;
         //rotate = (-mouseMovement.x / 100) * Time.deltaTime;
         move = -speedOfTheGun * Time.deltaTime;
-        rotate = touchMovement * Time.deltaTime;
+        rotate = -(touchMovement/10) * Time.deltaTime;
         transform.Translate(0, rotate, move);
     }
 }
