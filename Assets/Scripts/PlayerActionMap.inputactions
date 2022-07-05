@@ -15,10 +15,10 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "New action",
-                    "type": "Value",
+                    "name": "TouchPress",
+                    "type": "Button",
                     "id": "84a497ec-79fb-4e89-9a80-5c9acb7b8c9a",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "TouchSwipe",
+                    "type": "PassThrough",
+                    "id": "28aa928c-f4c9-42bb-b49c-5ec8f6262ca4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -69,34 +78,34 @@
                 },
                 {
                     "name": "",
-                    "id": "bbaa3c1a-7d96-4f33-b453-d90c3b2e567f",
-                    "path": "<Mouse>/position/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "63bd319a-8b95-4eb6-9e92-8aa447a7c942",
-                    "path": "<Touchscreen>/primaryTouch/delta/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "62a3d7fb-dd7b-4fd6-9c39-f6cb0288e7b3",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80055a35-1d0f-4aab-af1c-324a794a60b4",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "286965b7-9d06-4664-b083-390da834a370",
+                    "path": "<Touchscreen>/delta/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchSwipe",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

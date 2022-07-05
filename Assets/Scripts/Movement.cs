@@ -6,23 +6,32 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speedOfTheGun = 10f;
-    private float playerMovement;
+    private float playerMovement, touchMovement;
     private Vector2 mouseMovement;
 
     public InputActionAsset Map;
     InputActionMap gameplay;
-    InputAction playerHorizontalKeyboardInput, playerHorizontalMouseInput;
+    InputAction playerHorizontalKeyboardInput, playerHorizontalMouseInput, playerHorizontalTouchInput, playerHorizontalTouchSwipeInput;
     // Start is called before the first frame update
     void Awake()
     {
         gameplay = Map.FindActionMap("Player");
         playerHorizontalKeyboardInput = gameplay.FindAction("Keyboard");
         playerHorizontalMouseInput = gameplay.FindAction("Mouse");
+        playerHorizontalTouchInput = gameplay.FindAction("TouchPress");
+        playerHorizontalTouchSwipeInput = gameplay.FindAction("TouchSwipe");
 
         playerHorizontalKeyboardInput.performed += HorizontalKeyboardInput;
         playerHorizontalMouseInput.performed += HorizontalMouseInput;
+        playerHorizontalTouchInput.started += TouchInput;
+        playerHorizontalTouchSwipeInput.performed += HorizontalTouchInput;
+
         playerHorizontalKeyboardInput.canceled += HorizontalInputCancel;
+        playerHorizontalTouchInput.canceled += TouchInputCanceled;
     }
+
+    
+
     private void HorizontalKeyboardInput(InputAction.CallbackContext obj)
     {
         playerMovement = obj.ReadValue<float>();
@@ -34,6 +43,23 @@ public class Movement : MonoBehaviour
         mouseMovement = obj.ReadValue<Vector2>();
     }
 
+    private void TouchInput(InputAction.CallbackContext obj)
+    {
+        Debug.Log("Touch Performed ");
+    }
+    private void HorizontalTouchInput(InputAction.CallbackContext obj)
+    {
+        touchMovement = obj.ReadValue<float>();
+       Debug.Log("Touch movement = "+touchMovement);
+    }
+
+
+    private void TouchInputCanceled(InputAction.CallbackContext obj)
+    {
+        //throw new System.NotImplementedException();
+        Debug.Log("Touch finished ");
+    }
+    
     private void HorizontalInputCancel(InputAction.CallbackContext obj)
     {
         playerMovement = 0;
@@ -43,11 +69,15 @@ public class Movement : MonoBehaviour
     {
         playerHorizontalKeyboardInput.Enable();
         playerHorizontalMouseInput.Enable();
+        playerHorizontalTouchInput.Enable();
+        playerHorizontalTouchSwipeInput.Enable();
     }
     private void OnDisable()
     {
         playerHorizontalKeyboardInput.Disable();
         playerHorizontalMouseInput.Disable();
+        playerHorizontalTouchInput.Disable();
+        playerHorizontalTouchSwipeInput.Disable();
     }
 
     private void Start()
@@ -60,10 +90,11 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float move, rotate;
+        float move = 0, rotate = 0;
         //rotate = playerMovement * Time.deltaTime;
-        rotate = (-mouseMovement.x / 100) * Time.deltaTime;
+        //rotate = (-mouseMovement.x / 100) * Time.deltaTime;
         move = -speedOfTheGun * Time.deltaTime;
+        rotate = touchMovement * Time.deltaTime;
         transform.Translate(0, rotate, move);
     }
 }
