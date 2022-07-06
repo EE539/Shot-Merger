@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CreateBullet : MonoBehaviour
 {
-    public int bulletCount = 1;
+    public static int bulletCount = 1;
+    private float position = -0.02f, positionOfBullet = 0;
     public GameObject bullet;
     [HideInInspector] public static bool gameObjectDestroyed = true;
 
@@ -13,11 +14,18 @@ public class CreateBullet : MonoBehaviour
     {
         if (gameObjectDestroyed)
         {
-            for(int count = 0; count < bulletCount; count++){
-                Instantiate(bullet);
-                bullet.transform.position = new Vector3 (transform.position.x - 0.02f, transform.position.y, transform.position.z + 2f); 
-            }        
+            float posX = transform.position.x + position, posY = transform.position.y, posZ = transform.position.z;
+            Vector3 pos = new Vector3(posX, posY, posZ);
+            
+            for (int i = 0; i < bulletCount; i++)
+            {
+                Instantiate(bullet, pos, bullet.transform.rotation);
+                positionOfBullet = positionOfBullet + 0.02f;
+                posX = transform.position.x + position + positionOfBullet;
+                pos.x = posX;
+            }
             gameObjectDestroyed = false;
+            positionOfBullet = 0;
         }
     }
     
