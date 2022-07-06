@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
-    [HideInInspector] public static bool gameObjectDestroyed = false;
     public float speedOfBullet = 10;
     float time = 0;
     // Update is called once per frame
@@ -16,9 +15,8 @@ public class BulletMovement : MonoBehaviour
         transform.Translate(0, yAxis, 0);
         if (time >= 1)
         {
-            Debug.Log("Will be destroyed");
             Destroy(gameObject);
-            gameObjectDestroyed = true;
+            CreateBullet.gameObjectDestroyed = true;
             time = 0;
         }
             

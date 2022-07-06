@@ -5,24 +5,16 @@ using UnityEngine;
 public class CreateBullet : MonoBehaviour
 {
     public GameObject bullet;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Instantiate(bullet);
-        //Debug.Log(transform.position);
-        //bullet.transform.position = GameObject.FindWithTag("Player").transform.position;
-    }
+    [HideInInspector] public static bool gameObjectDestroyed = true;
 
     // Update is called once per frame
     void Update()
     {
-        if (BulletMovement.gameObjectDestroyed)
+        if (gameObjectDestroyed)
         {
             Instantiate(bullet);
-            bullet.transform.position = new Vector3 (transform.position.x - 0.02f, transform.position.y, transform.position.z + 5.3f);
-            BulletMovement.gameObjectDestroyed = false;
+            bullet.transform.position = new Vector3 (transform.position.x - 0.02f, transform.position.y, transform.position.z + 2f);
+            gameObjectDestroyed = false;
         }
     }
 }

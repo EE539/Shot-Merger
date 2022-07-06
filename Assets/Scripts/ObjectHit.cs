@@ -9,10 +9,12 @@ public class ObjectHit : MonoBehaviour
         if(collision.gameObject.tag == "Bullet")
         {
             Destroy(gameObject);
+            Destroy(this);
         }
-        else if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player")
         {
             Debug.Log("Failed :(");
         }
+
     }
 }
