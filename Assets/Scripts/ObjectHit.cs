@@ -11,7 +11,7 @@ public class ObjectHit : MonoBehaviour
             Destroy(gameObject);
             Destroy(this);
         }
-        if(collision.gameObject.tag == "Player")
+        else if(collision.gameObject.tag == "Player")
         {
             Debug.Log("Failed :(");
         }

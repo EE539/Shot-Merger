@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CreateBullet : MonoBehaviour
 {
+    public int bulletCount = 1;
     public GameObject bullet;
     [HideInInspector] public static bool gameObjectDestroyed = true;
 
@@ -12,9 +13,12 @@ public class CreateBullet : MonoBehaviour
     {
         if (gameObjectDestroyed)
         {
-            Instantiate(bullet);
-            bullet.transform.position = new Vector3 (transform.position.x - 0.02f, transform.position.y, transform.position.z + 2f);
+            for(int count = 0; count < bulletCount; count++){
+                Instantiate(bullet);
+                bullet.transform.position = new Vector3 (transform.position.x - 0.02f, transform.position.y, transform.position.z + 2f); 
+            }        
             gameObjectDestroyed = false;
         }
     }
+    
 }
