@@ -993,9 +993,10 @@ GameObject:
   - component: {fileID: 8496852751712725566}
   - component: {fileID: 8496852751712725568}
   - component: {fileID: 8496852751712725569}
+  - component: {fileID: 8496852751712725570}
   m_Layer: 0
   m_Name: Gun (Player)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1012,7 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568e3d4eae2fff7428cb0b55624b97d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedOfTheGun: 10
+  speedOfTheGun: 5
   Map: {fileID: -944628639613478452, guid: 0d86fc67e297b4d48b85d7d2a8565c34, type: 3}
 --- !u!65 &8496852751712725568
 BoxCollider:
@@ -1043,6 +1044,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 114
   m_CollisionDetection: 0
+--- !u!114 &8496852751712725570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496852751712725565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3d58f058fc44948a8a60a27eea5639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6988000186742994271, guid: 87f25cb9e4254404b8b4708fdfaccf06, type: 3}
 --- !u!4 &8834000928460294210
 Transform:
   m_ObjectHideFlags: 0
