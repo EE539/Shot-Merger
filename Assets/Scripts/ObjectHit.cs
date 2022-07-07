@@ -19,10 +19,11 @@ public class ObjectHit : MonoBehaviour
             }
             if(textToInt <= 0)
             {
-                Destroy(gameObject);   
+                Destroy(gameObject);
+                Destroy(numberText);
+
             }
             Destroy(collision.gameObject);
-            Destroy(numberText);
             CreateBullet.gameObjectDestroyed = true;
             
         }
