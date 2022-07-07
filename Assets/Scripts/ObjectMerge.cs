@@ -12,6 +12,7 @@ public class ObjectMerge : MonoBehaviour
             if(gameObject.tag == "x2" || gameObject.tag == "+2" || gameObject.tag == "+1" || gameObject.tag == "x3")
             {
                 AddBullet(gameObject.tag);
+                MergeObjects(collision.gameObject);
             } 
         }
         //To do -> Merge blocks with gun
@@ -36,6 +37,11 @@ public class ObjectMerge : MonoBehaviour
         {
             CreateBullet.bulletCount = 3;
             bulletTimer.desiredCreationTime -= 0.03f;
+            
         }
+    }
+    void MergeObjects(GameObject player)
+    {
+        this.transform.parent = player.transform;
     }
 }
