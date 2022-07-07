@@ -16,6 +16,7 @@ public class ObjectMerge : MonoBehaviour
                 }
             } 
         }
-
+        //To do -> Merge blocks with gun
+        //To do -> Make block disapear if hits barel before it touches it
     }
 }

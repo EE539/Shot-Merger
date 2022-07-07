@@ -21,27 +21,18 @@ public class Movement : MonoBehaviour
         playerHorizontalTouchInput.started += TouchInput;
         playerHorizontalTouchSwipeInput.performed += HorizontalTouchInput;
 
-        playerHorizontalTouchInput.canceled += TouchInputCanceled;
     }
 
 
     private void TouchInput(InputAction.CallbackContext obj)
     {
-        Debug.Log("Touch Performed ");
     }
     private void HorizontalTouchInput(InputAction.CallbackContext obj)
     {
         touchMovement = obj.ReadValue<float>();
-       Debug.Log("Touch movement = "+touchMovement);
     }
 
 
-    private void TouchInputCanceled(InputAction.CallbackContext obj)
-    {
-        //throw new System.NotImplementedException();
-        Debug.Log("Touch finished ");
-    }
-    
     private void OnEnable()
     {
        
