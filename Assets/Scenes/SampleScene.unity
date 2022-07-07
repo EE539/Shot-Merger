@@ -1199,6 +1199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b43152804c1cd24c8ad7d38eec3ed9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAlive: {fileID: 8496852751712725566}
   numberText: {fileID: 923804950}
 --- !u!64 &7531324226328946985
 MeshCollider:
@@ -1214,3 +1215,14 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6329158148709259305, guid: 9f40d97690431b74babc8b2bc3465e0c, type: 3}
+--- !u!114 &8496852751712725566 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7341130777619198004, guid: fc7215bd47512434c869f0b2d112bcd8, type: 3}
+  m_PrefabInstance: {fileID: 1155750561699518986}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 568e3d4eae2fff7428cb0b55624b97d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

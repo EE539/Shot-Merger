@@ -38,6 +38,11 @@ public class ObjectHit : MonoBehaviour
 
             ChildGameObject1.transform.Translate(0, -0.05f, 0);
             ChildGameObject2.transform.Translate(0, 0.05f, 0);
+
+            for(int count = 3; count < collision.gameObject.transform.childCount; count++)
+            {
+                Destroy (collision.gameObject.transform.GetChild(count).gameObject);
+            }
         }
     }
 }
