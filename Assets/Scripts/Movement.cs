@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public UnityEngine.UI.Slider slider;
     public float speedOfTheGun = 1f;
     private float touchMovement;
     [HideInInspector] public bool aliveState = true;
@@ -29,6 +30,7 @@ public class Movement : MonoBehaviour
     private void TouchInput(InputAction.CallbackContext obj)
     {
         waitTouch = false;
+        slider.gameObject.SetActive(false);
     }
     private void HorizontalTouchInput(InputAction.CallbackContext obj)
     {
