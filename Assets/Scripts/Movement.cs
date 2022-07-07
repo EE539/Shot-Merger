@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 {
     public float speedOfTheGun = 1f;
     private float touchMovement;
+    [HideInInspector] public bool aliveState = true;
 
     public InputActionAsset Map;
     InputActionMap gameplay;
@@ -57,15 +58,18 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         float move = 0, rotate = 0;
+        if (aliveState)
+        {
+            move = -speedOfTheGun * Time.deltaTime;
+            rotate = -(touchMovement / 10) * Time.deltaTime;
+            transform.Translate(0, rotate, move);
+            if (transform.position.x >= 0.655f)
+                transform.position = new Vector3(0.655f, transform.position.y, transform.position.z);
+            else if (transform.position.x <= -0.627f)
+                transform.position = new Vector3(-0.627f, transform.position.y, transform.position.z);
+            if (transform.position.z >= 86)
+                transform.position = new Vector3(transform.position.x, transform.position.y, 86);
+        }
         
-        move = -speedOfTheGun * Time.deltaTime;
-        rotate = -(touchMovement/10) * Time.deltaTime;
-        transform.Translate(0, rotate, move);
-        if (transform.position.x >= 0.655f)
-            transform.position = new Vector3(0.655f, transform.position.y, transform.position.z);
-        else if (transform.position.x <= -0.627f)
-            transform.position = new Vector3(-0.627f, transform.position.y, transform.position.z);
-        if (transform.position.z >= 86)
-            transform.position = new Vector3(transform.position.x, transform.position.y, 86);
     }
 }

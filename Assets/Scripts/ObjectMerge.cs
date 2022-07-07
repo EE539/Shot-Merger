@@ -15,8 +15,6 @@ public class ObjectMerge : MonoBehaviour
                 MergeObjects(collision.gameObject);
             } 
         }
-        //To do -> Merge blocks with gun
-        //To do -> Make block disapear if hits barel before it touches it
     }
     void AddBullet(string operation)
     {

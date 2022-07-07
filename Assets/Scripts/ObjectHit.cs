@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ObjectHit : MonoBehaviour
 {
+    public Movement isAlive;
     public TextMeshProUGUI numberText;
     int textToInt;
     private void OnCollisionEnter(Collision collision)
@@ -29,7 +30,14 @@ public class ObjectHit : MonoBehaviour
         }
         else if(collision.gameObject.tag == "Player")
         {
-            Debug.Log("Failed :(");
+            isAlive.aliveState = false;
+            collision.gameObject.GetComponent<Rigidbody>().useGravity = true;
+            collision.gameObject.GetComponent<Movement>().enabled = false;
+            GameObject ChildGameObject1 = collision.gameObject.transform.GetChild(0).gameObject;
+            GameObject ChildGameObject2 = collision.gameObject.transform.GetChild(1).gameObject;
+
+            ChildGameObject1.transform.Translate(0, -0.05f, 0);
+            ChildGameObject2.transform.Translate(0, 0.05f, 0);
         }
     }
 }
