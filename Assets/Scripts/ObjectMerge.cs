@@ -43,5 +43,6 @@ public class ObjectMerge : MonoBehaviour
     void MergeObjects(GameObject player)
     {
         this.transform.parent = player.transform;
+        CreateBullet.extraPosition = CreateBullet.extraPosition + transform.localScale.z + 0.1f;
     }
 }

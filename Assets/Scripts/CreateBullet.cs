@@ -6,6 +6,7 @@ public class CreateBullet : MonoBehaviour
 {
     public static int bulletCount = 1;
     private float position = -0.02f, positionOfBullet = 0;
+    [HideInInspector]public static float extraPosition = 0;
     public GameObject bullet;
     float timer;
     public float desiredCreationTime = 1;
@@ -17,7 +18,7 @@ public class CreateBullet : MonoBehaviour
         timer += Time.deltaTime;
         if (gameObjectDestroyed || timer == desiredCreationTime)
         {
-            float posX = transform.position.x + position, posY = transform.position.y, posZ = transform.position.z;
+            float posX = transform.position.x + position, posY = transform.position.y, posZ = transform.position.z + extraPosition;
             Vector3 pos = new Vector3(posX, posY, posZ);
             
             for (int i = 0; i < bulletCount; i++)
