@@ -76,4 +76,8 @@ public class Movement : MonoBehaviour
         }
         
     }
+    public void CollisionDetected(CollisionDetector childScript)
+    {
+        Debug.Log("child collided");
+    }
 }
