@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     public float speedOfTheGun = 1f;
     private float touchMovement;
     [HideInInspector] public bool aliveState = true;
+    private bool waitTouch = true;
 
     public InputActionAsset Map;
     InputActionMap gameplay;
@@ -27,6 +28,7 @@ public class Movement : MonoBehaviour
 
     private void TouchInput(InputAction.CallbackContext obj)
     {
+        waitTouch = false;
     }
     private void HorizontalTouchInput(InputAction.CallbackContext obj)
     {
@@ -58,7 +60,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         float move = 0, rotate = 0;
-        if (aliveState)
+        if (aliveState && !waitTouch)
         {
             move = -speedOfTheGun * Time.deltaTime;
             rotate = -(touchMovement / 10) * Time.deltaTime;
