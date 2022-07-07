@@ -22,6 +22,7 @@ public class ObjectHit : MonoBehaviour
                 Destroy(gameObject);   
             }
             Destroy(collision.gameObject);
+            Destroy(numberText);
             CreateBullet.gameObjectDestroyed = true;
             
         }
@@ -29,6 +30,5 @@ public class ObjectHit : MonoBehaviour
         {
             Debug.Log("Failed :(");
         }
-        //To do -> Make a counter to destroy the game object and take the counter from canvas
     }
 }

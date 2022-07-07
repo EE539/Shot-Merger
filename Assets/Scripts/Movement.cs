@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speedOfTheGun = 10f;
+    public float speedOfTheGun = 1f;
     private float touchMovement;
 
     public InputActionAsset Map;

@@ -4,19 +4,38 @@ using UnityEngine;
 
 public class ObjectMerge : MonoBehaviour
 {
+    CreateBullet bulletTimer;
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            if(gameObject.tag == "x2"){
-                if(CreateBullet.bulletCount < 3){
-                    Destroy(GameObject.FindGameObjectWithTag("Bullet"));
-                    CreateBullet.bulletCount *= 2;
-                    CreateBullet.gameObjectDestroyed = true;
-                }
+            if(gameObject.tag == "x2" || gameObject.tag == "+2" || gameObject.tag == "+1" || gameObject.tag == "x3")
+            {
+                AddBullet(gameObject.tag);
             } 
         }
         //To do -> Merge blocks with gun
         //To do -> Make block disapear if hits barel before it touches it
+    }
+    void AddBullet(string operation)
+    {
+
+        if (CreateBullet.bulletCount < 3)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Bullet"));
+            if (operation[0].Equals('x')) {
+                CreateBullet.bulletCount *= (int)char.GetNumericValue(operation[1]);
+            }
+            else
+            {
+                CreateBullet.bulletCount += (int)char.GetNumericValue(operation[1]);
+            }
+            CreateBullet.gameObjectDestroyed = true;
+        }
+        if (CreateBullet.bulletCount > 3)
+        {
+            CreateBullet.bulletCount = 3;
+            bulletTimer.desiredCreationTime -= 0.03f;
+        }
     }
 }
