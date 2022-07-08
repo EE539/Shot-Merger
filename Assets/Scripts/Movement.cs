@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     public UnityEngine.UI.Slider slider;
     public float speedOfTheGun = 1f;
     private float touchMovement;
+    [HideInInspector] public float move = 0, rotate = 0;
     [HideInInspector] public bool aliveState = true;
     private bool waitTouch = true;
 
@@ -61,7 +62,6 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float move = 0, rotate = 0;
         if (aliveState && !waitTouch)
         {
             move = -speedOfTheGun * Time.deltaTime;
@@ -75,9 +75,5 @@ public class Movement : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, transform.position.y, 86);
         }
         
-    }
-    public void CollisionDetected(CollisionDetector childScript)
-    {
-        Debug.Log("child collided");
     }
 }

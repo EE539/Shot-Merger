@@ -42,7 +42,7 @@ public class ObjectMerge : MonoBehaviour
     {
         List<Vector3> distanceToPlayer = new List<Vector3>();
         float nearestDistance = float.MaxValue, centeralized = 0;
-        int whichChild = 0, playerChildCount;
+        int whichChild = 0;
 
         for (int count = 0; count < this.transform.childCount; count++) //Child objelerin lokasyonlarýný aldým
         {
@@ -57,7 +57,6 @@ public class ObjectMerge : MonoBehaviour
             }
         }//hangisi player'a yakýn
         centeralized = transform.GetComponent<Renderer>().bounds.center.x - transform.GetChild(whichChild - 1).GetComponent<Renderer>().bounds.center.x;
-
         if (player.transform.childCount <= 3)
         {
             if (centeralized != 0) //sol veya sað
@@ -68,17 +67,27 @@ public class ObjectMerge : MonoBehaviour
             {
                 transform.position = new Vector3(player.transform.position.x - 0.02f, transform.position.y, transform.position.z);
             }
+            
             //en yakýn objeyi player ile birleþtir birleþtirme
         } // ilk obje
 
         else //player'ýn deðil, çarptýðý küpün merkezinden al!
         {
-            Debug.Log("Name ? " + player.transform.GetChild(0).name);
+            if (centeralized != 0) //sol veya sað
+            {
+                transform.position = new Vector3(player.transform.position.x - 0.02f + centeralized, transform.position.y, transform.position.z);
+            }
+            else //orta veya tek küp
+            {
+                transform.position = new Vector3(player.transform.position.x - 0.02f, transform.position.y, transform.position.z);
+            }
         } //ilk objeden sonra
-        /*en yakýn küpü silahýn namlusuna ekle*/            
-
+        //this.gameObject.AddComponent<CollisionDetector>();
+        //this.gameObject.GetComponent<CollisionDetector>().player = player;
+        /*en yakýn küpü silahýn namlusuna ekle*/
         //ikinci küpü en yakýn birleþme noktasýna ekle
         this.transform.parent = player.transform;
         CreateBullet.extraPosition = CreateBullet.extraPosition + transform.localScale.z + 0.1f;
+
     }
 }
