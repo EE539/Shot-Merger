@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6988000186742994272}
   - component: {fileID: 6988000186742994275}
   - component: {fileID: 6988000186742994274}
-  - component: {fileID: 6988000186742994269}
   - component: {fileID: 6988000186742994268}
+  - component: {fileID: 2652975445442731360}
+  - component: {fileID: 6988000186742994269}
   - component: {fileID: -837571793001293052}
   m_Layer: 0
   m_Name: Bullet
@@ -86,6 +87,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6988000186742994268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6988000186742994271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3f8cee9abddac42ad7cdeea92ac0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedOfBullet: 3
+--- !u!114 &2652975445442731360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6988000186742994271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b178fc6a83913646a2195d7a61fc49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &6988000186742994269
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -100,20 +126,6 @@ CapsuleCollider:
   m_Height: 0.06350785
   m_Direction: 1
   m_Center: {x: 0.00012123351, y: 0.011615094, z: -0.091644116}
---- !u!114 &6988000186742994268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6988000186742994271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d3f8cee9abddac42ad7cdeea92ac0a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAlive: {fileID: 0}
-  speedOfBullet: 3
 --- !u!54 &-837571793001293052
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,5 +140,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0

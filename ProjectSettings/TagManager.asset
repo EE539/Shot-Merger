@@ -9,6 +9,7 @@ TagManager:
   - x3
   - +1
   - +2
+  - Cube
   layers:
   - Default
   - TransparentFX

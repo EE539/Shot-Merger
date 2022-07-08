@@ -8,8 +8,8 @@ public class Movement : MonoBehaviour
     public UnityEngine.UI.Slider slider;
     public float speedOfTheGun = 1f;
     private float touchMovement;
-    [HideInInspector] public bool aliveState = true;
-    private bool waitTouch = true;
+    [HideInInspector] public float move = 0, rotate = 0;
+    [HideInInspector] public bool aliveState = true, finisher = false, waitTouch = true;
 
     public InputActionAsset Map;
     InputActionMap gameplay;
@@ -61,8 +61,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float move = 0, rotate = 0;
-        if (aliveState && !waitTouch)
+        if (aliveState && !waitTouch && !finisher)
         {
             move = -speedOfTheGun * Time.deltaTime;
             rotate = -(touchMovement / 10) * Time.deltaTime;
@@ -76,8 +75,14 @@ public class Movement : MonoBehaviour
         }
         
     }
-    public void CollisionDetected(CollisionDetector childScript)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("child collided");
+        rotate = 0;
+        if (collision.gameObject.tag == "Finish")
+        {
+            move = 0;
+            finisher = true;
+        }
     }
 }
