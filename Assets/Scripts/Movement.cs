@@ -9,8 +9,7 @@ public class Movement : MonoBehaviour
     public float speedOfTheGun = 1f;
     private float touchMovement;
     [HideInInspector] public float move = 0, rotate = 0;
-    [HideInInspector] public bool aliveState = true;
-    private bool waitTouch = true;
+    [HideInInspector] public bool aliveState = true, finisher = false, waitTouch = true;
 
     public InputActionAsset Map;
     InputActionMap gameplay;
@@ -62,7 +61,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (aliveState && !waitTouch)
+        if (aliveState && !waitTouch && !finisher)
         {
             move = -speedOfTheGun * Time.deltaTime;
             rotate = -(touchMovement / 10) * Time.deltaTime;
@@ -75,5 +74,16 @@ public class Movement : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, transform.position.y, 86);
         }
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        rotate = 0;
+        if (collision.gameObject.tag == "Finish")
+        {
+            
+            move = 0;
+            finisher = true;   
+        }
     }
 }

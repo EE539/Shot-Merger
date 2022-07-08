@@ -344,9 +344,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2121782598167096991}
   - component: {fileID: 7341130777619198004}
+  - component: {fileID: 7341130777619198024}
+  - component: {fileID: 8496852751712725571}
   - component: {fileID: 7341130777619198026}
   - component: {fileID: 7341130777619198027}
-  - component: {fileID: 7341130777619198024}
   m_Layer: 0
   m_Name: Gun (Player)
   m_TagString: Player
@@ -384,9 +385,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568e3d4eae2fff7428cb0b55624b97d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
   speedOfTheGun: 1
+  move: 0
+  rotate: 0
   aliveState: 1
   Map: {fileID: -944628639613478452, guid: 0d86fc67e297b4d48b85d7d2a8565c34, type: 3}
+--- !u!114 &7341130777619198024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341130777619198007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3d58f058fc44948a8a60a27eea5639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: {fileID: 7341130777619198004}
+  bullet: {fileID: 6988000186742994271, guid: 87f25cb9e4254404b8b4708fdfaccf06, type: 3}
+  desiredCreationTime: 1
+  scaleOfPlayer: {x: 0, y: 0, z: 0}
+  playerBoundries:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+--- !u!114 &8496852751712725571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341130777619198007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609318bebbbe29a47b3f0fa6066f7888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
 --- !u!65 &7341130777619198026
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -416,18 +454,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 114
   m_CollisionDetection: 0
---- !u!114 &7341130777619198024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7341130777619198007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b3d58f058fc44948a8a60a27eea5639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAlive: {fileID: 7341130777619198004}
-  bullet: {fileID: 6988000186742994271, guid: 87f25cb9e4254404b8b4708fdfaccf06, type: 3}
-  desiredCreationTime: 1

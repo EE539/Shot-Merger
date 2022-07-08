@@ -5,18 +5,22 @@ using UnityEngine;
 public class CreateBullet : MonoBehaviour
 {
     public Movement isAlive;
-    public static int bulletCount = 1;
-    private float position = -0.02f, positionOfBullet = 0;
-    [HideInInspector]public static float extraPosition = 0;
+    private float position = -0.02f, positionOfBullet = 0, timer;
+    [HideInInspector] public static float extraPosition = 0;
     public GameObject bullet;
-    float timer;
     public float desiredCreationTime = 1;
     [HideInInspector] public static bool gameObjectDestroyed = true;
+    public Vector3 scaleOfPlayer;
+    public Bounds playerBoundries;
 
+    private void Start()
+    {
+        playerBoundries = new Bounds(transform.position, Vector3.zero);
+    }
     // Update is called once per frame
     void Update()
     {
-        if (isAlive.aliveState)
+        if (isAlive.aliveState && !GetComponent<Movement>().finisher && !GetComponent<Movement>().waitTouch)
         {
             float posX = transform.position.x + position, posY = transform.position.y, posZ = transform.position.z + extraPosition;
             Vector3 pos = new Vector3(posX, posY, posZ);
@@ -25,14 +29,12 @@ public class CreateBullet : MonoBehaviour
             if (gameObjectDestroyed || timer == desiredCreationTime)
             {
                 if (transform.childCount <= 3)
-                {                    
-                    for (int i = 0; i < bulletCount; i++)
-                    {
-                        Instantiate(bullet, pos, bullet.transform.rotation);
-                        positionOfBullet = positionOfBullet + 0.02f;
-                        posX = transform.position.x + position + positionOfBullet;
-                        pos.x = posX;
-                    }
+                {
+
+                    Instantiate(bullet, pos, bullet.transform.rotation);
+                    posX = transform.position.x + position;
+                    pos.x = posX;
+                    
                     gameObjectDestroyed = false;
                     positionOfBullet = 0;
                 }
@@ -50,14 +52,11 @@ public class CreateBullet : MonoBehaviour
                         {
                             for(int counterCube = 0; counterCube<child.childCount; counterCube++)
                                 if(child.GetChild(counterCube).tag.Equals("Cube"))
-                                    position.Add(child.GetChild(counterCube).transform.GetComponent<Renderer>().bounds.center); //çocuðun merkezi alýndý
+                                    position.Add(new Vector3(child.GetChild(counterCube).transform.GetComponent<Renderer>().bounds.center.x, child.GetChild(counterCube).transform.GetComponent<Renderer>().bounds.center.y, child.GetChild(counterCube).transform.GetComponent<Renderer>().bounds.center.z + 0.04f)); //çocuðun merkezi alýndý
                             
                             for(int i = 0; i < position.Count; i++)
                             {
-                                for(int count = 0; count < bulletCount; count++)
-                                {
-                                    Instantiate(bullet, position[i], bullet.transform.rotation);
-                                }
+                                Instantiate(bullet, position[i], bullet.transform.rotation);
                             }
                             gameObjectDestroyed = false;
                             positionOfBullet = 0;

@@ -11,26 +11,22 @@ public class ObjectMerge : MonoBehaviour
         {
             if (gameObject.tag == "x2" || gameObject.tag == "+2" || gameObject.tag == "+1" || gameObject.tag == "x3")
             {
-                AddBullet(gameObject.tag);
+                AddBullet(collision.gameObject, gameObject.tag);
                 MergeObjects(collision.gameObject);
             } 
         }
     }
-    void AddBullet(string operation)
+    void AddBullet(GameObject player, string operation)
     {
-
-        if (CreateBullet.bulletCount < 3)
-        {
-            Destroy(GameObject.FindGameObjectWithTag("Bullet"));
-            if (operation[0].Equals('x')) {
-                CreateBullet.bulletCount *= (int)char.GetNumericValue(operation[1]);
-            }
-            else
-            {
-                CreateBullet.bulletCount += (int)char.GetNumericValue(operation[1]);
-            }
-            CreateBullet.gameObjectDestroyed = true;
+        if (operation[0].Equals('x')) {
+            player.GetComponent<CreateBullet>().desiredCreationTime /= (int)char.GetNumericValue(operation[1]);
         }
+        else
+        {
+            player.GetComponent<CreateBullet>().desiredCreationTime -= (int)char.GetNumericValue(operation[1])/10;    //CreateBullet.bulletCount += (int)char.GetNumericValue(operation[1]);
+        }
+        CreateBullet.gameObjectDestroyed = true;
+        
     }
     void MergeObjects(GameObject player)
     {
@@ -76,11 +72,9 @@ public class ObjectMerge : MonoBehaviour
                 transform.position = new Vector3(player.transform.position.x - 0.02f, transform.position.y, transform.position.z);
             }
         } //ilk objeden sonra
-        //this.gameObject.AddComponent<CollisionDetector>();
-        //this.gameObject.GetComponent<CollisionDetector>().player = player;
-        /*en yakýn küpü silahýn namlusuna ekle*/
-        //ikinci küpü en yakýn birleþme noktasýna ekle
+        
         this.transform.parent = player.transform;
+        
         //CreateBullet.extraPosition = CreateBullet.extraPosition + transform.localScale.z + 0.1f;
 
     }
