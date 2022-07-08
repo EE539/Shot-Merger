@@ -87,7 +87,7 @@ public class ObjectMerge : MonoBehaviour
         /*en yakýn küpü silahýn namlusuna ekle*/
         //ikinci küpü en yakýn birleþme noktasýna ekle
         this.transform.parent = player.transform;
-        CreateBullet.extraPosition = CreateBullet.extraPosition + transform.localScale.z + 0.1f;
+        //CreateBullet.extraPosition = CreateBullet.extraPosition + transform.localScale.z + 0.1f;
 
     }
 }

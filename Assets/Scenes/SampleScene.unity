@@ -802,8 +802,8 @@ GameObject:
   - component: {fileID: 439170697}
   - component: {fileID: 439170696}
   m_Layer: 0
-  m_Name: x2 Cubes
-  m_TagString: x2
+  m_Name: Cube
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1913,8 +1913,8 @@ GameObject:
   - component: {fileID: 811825115}
   - component: {fileID: 811825114}
   m_Layer: 0
-  m_Name: x2 Cubes (1)
-  m_TagString: x2
+  m_Name: Cube
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2197,12 +2197,12 @@ RectTransform:
   m_GameObject: {fileID: 977733069}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -19.465597}
-  m_LocalScale: {x: 15.495925, y: 20.013327, z: 11.187124}
+  m_LocalScale: {x: 15.495924, y: 20.013327, z: 11.187124}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 156613621}
-  m_Father: {fileID: 1653965871}
-  m_RootOrder: 0
+  m_Father: {fileID: 1993064578}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3458,8 +3458,8 @@ GameObject:
   - component: {fileID: 1545769676}
   - component: {fileID: 1545769675}
   m_Layer: 0
-  m_Name: x2 Cubes
-  m_TagString: x2
+  m_Name: Cube
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3723,8 +3723,8 @@ GameObject:
   - component: {fileID: 1653965869}
   - component: {fileID: 1653965868}
   m_Layer: 0
-  m_Name: +1 Cube
-  m_TagString: +1
+  m_Name: Cube
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3803,8 +3803,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 977733070}
+  m_Children: []
   m_Father: {fileID: 1993064578}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4638,6 +4637,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1653965871}
+  - {fileID: 977733070}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4696,8 +4696,8 @@ GameObject:
   - component: {fileID: 2038040315}
   - component: {fileID: 2038040314}
   m_Layer: 0
-  m_Name: x2 Cubes (1)
-  m_TagString: x2
+  m_Name: Cube
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

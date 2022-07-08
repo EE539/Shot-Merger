@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3f8cee9abddac42ad7cdeea92ac0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAlive: {fileID: 0}
   speedOfBullet: 3
 --- !u!54 &-837571793001293052
 Rigidbody:
