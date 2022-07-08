@@ -81,9 +81,8 @@ public class Movement : MonoBehaviour
         rotate = 0;
         if (collision.gameObject.tag == "Finish")
         {
-            
             move = 0;
-            finisher = true;   
+            finisher = true;
         }
     }
 }

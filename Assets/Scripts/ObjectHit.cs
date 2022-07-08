@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ObjectHit : MonoBehaviour
 {
+    public UIScript fail;
     public Movement isAlive;
     public TextMeshProUGUI numberText;
     int textToInt;
@@ -43,6 +44,7 @@ public class ObjectHit : MonoBehaviour
             {
                 Destroy (collision.gameObject.transform.GetChild(count).gameObject);
             }
+            fail.Fail();
         }
     }
 }
