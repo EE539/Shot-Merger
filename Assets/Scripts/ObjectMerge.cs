@@ -31,12 +31,6 @@ public class ObjectMerge : MonoBehaviour
             }
             CreateBullet.gameObjectDestroyed = true;
         }
-        if (CreateBullet.bulletCount > 3)
-        {
-            CreateBullet.bulletCount = 3;
-            bulletTimer.desiredCreationTime -= 0.03f;
-            
-        }
     }
     void MergeObjects(GameObject player)
     {
